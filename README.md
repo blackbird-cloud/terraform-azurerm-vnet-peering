@@ -1,6 +1,8 @@
-# Azure Vnet Peering Terraform module
-A Terraform module which configures your Azure Vnet Peering. 
-[![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://www.blackbird.cloud)
+<!-- BEGIN_TF_DOCS -->
+# Terraform Azurerm Vnet Peering Module
+Terraform module to create an Azure VNet peering
+
+[![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://blackbird.cloud)
 
 ## Example
 ```hcl
@@ -56,10 +58,8 @@ module "vnet_peering" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allow_forwarded_traffic"></a> [allow\_forwarded\_traffic](#input\_allow\_forwarded\_traffic) | Controls if forwarded traffic from the VMs in the peered virtual network is allowed. | `bool` | `false` | no |
-| <a name="input_allow_gateway_transit"></a> [allow\_gateway\_transit](#input\_allow\_gateway\_transit) | Controls gatewayLinks can be used in the remote virtual network's link to the local virtual network. | `bool` | `false` | no |
 | <a name="input_allow_virtual_network_access"></a> [allow\_virtual\_network\_access](#input\_allow\_virtual\_network\_access) | Controls if the VMs in the peered virtual network are allowed to access the VMs in the local virtual network. | `bool` | `true` | no |
-| <a name="input_network_peerings"></a> [network\_peerings](#input\_network\_peerings) | A map of network peerings to create. | <pre>map(object({<br>    origin_resource_group_name  = string<br>    origin_virtual_network_name = string<br>    remote_virtual_network_id   = string<br>  }))</pre> | `{}` | no |
-| <a name="input_use_remote_gateways"></a> [use\_remote\_gateways](#input\_use\_remote\_gateways) | Controls if remote gateways can be used on the local virtual network. | `bool` | `false` | no |
+| <a name="input_network_peerings"></a> [network\_peerings](#input\_network\_peerings) | A map of network peerings to create. | <pre>map(object({<br>    origin_resource_group_name  = string<br>    origin_virtual_network_name = string<br>    remote_virtual_network_id   = string<br>    origin_is_gateway           = bool<br>  }))</pre> | `{}` | no |
 
 ## Outputs
 
@@ -75,4 +75,5 @@ Checkout our other :point\_right: [terraform modules](https://registry.terraform
 
 ## Copyright
 
-Copyright © 2017-2023 [Blackbird Cloud](https://www.blackbird.cloud)
+Copyright © 2017-2024 [Blackbird Cloud](https://blackbird.cloud)
+<!-- END_TF_DOCS -->
